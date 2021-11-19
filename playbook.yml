@@ -2,22 +2,24 @@
 - hosts: all
   become: yes
   become_method: sudo
-  tasks: 
+
+  tasks:
+ 
   - name: "Update"
     apt:
     update_cache: true
     upgrade: dist
     cache_valid_time: 3600
     force_apt_get: true
+ 
   - name: "install curl"
     apt:
     name: curl
     state: latest
+ 
   - name: "UFW"
     ufw:
       state: enabled
       rule: allow
-      port: 80
-      port: 8080
-      port: 1834
+      port: 80,8080,1834
       proto: tcp
