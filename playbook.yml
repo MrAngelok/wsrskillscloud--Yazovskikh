@@ -13,3 +13,11 @@
     apt:
     name: curl
     state: latest
+  - name: "UFW"
+    ufw:
+      state: enabled
+      rule: allow
+      port: 80
+      port: 8080
+      port: 1834
+      proto: tcp
